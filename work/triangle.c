@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   triangle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 10:07:48 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/07 09:47:43 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:24:01 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ void triangle_parsing(t_minirt *rt)
     triangle->point_b = vectorSplit(rt->pars.splitrest[2]);
     triangle->point_c = vectorSplit(rt->pars.splitrest[3]);
     triangle->color = colorSplit(rt, rt->pars.splitrest[4]);
+    triangle->translation = vectorSplit(rt->pars.splitrest[5]);
+    triangle->point_a = vectorAdd(triangle->point_a,triangle->translation);
+    triangle->point_b = vectorAdd(triangle->point_b, triangle->translation);
+    triangle->point_c = vectorAdd(triangle->point_c, triangle->translation);
     add_objects(&rt->list_obj, copy_triangle(triangle->point_a, triangle->point_b, triangle->point_c, triangle->color));
     free(triangle);
 }

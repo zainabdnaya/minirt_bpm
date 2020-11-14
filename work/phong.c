@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 16:52:23 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/13 11:00:57 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/14 07:15:40 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ void        specular_data(t_minirt *rt)
     }
     else if (rt->check == 5)
     {
-        rt->shininess = 600;
-        rt->ks = 0.9;
+        rt->shininess = 500;
+        rt->ks = 0.5;
     }
     else if (rt->check == 1)
     {
-        rt->shininess = 600;
-        rt->ks = 0.9;
+        rt->shininess = 500;
+        rt->ks = 0.5;
     }
 }
 

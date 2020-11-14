@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_RT.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:48:53 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/06 14:23:16 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/14 09:50:43 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ void parsing_RT(char *file, t_minirt *rt)
         ft_stringdel(&rt->line);
 
     }
-    close(fd);
+    // close(fd);
 }

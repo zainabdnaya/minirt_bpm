@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   square.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 22:06:20 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/07 09:46:49 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:34:05 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,15 @@ void square_parsing(t_minirt *rt)
             obj_error(24);
             exit(1);
         }
-    square->color = colorSplit(rt, rt->pars.splitrest[4]);
     square->side_size = convert_to_double(rt->pars.splitrest[3]);
+    square->color = colorSplit(rt, rt->pars.splitrest[4]);
+    square->translation = vectorSplit(rt->pars.splitrest[5]);
     if(square->side_size < 0 )
     {
         obj_error(30);
         exit(1);
     }
+    square->center = vectorAdd(square->center,square->translation);
     add_objects(&rt->list_obj, copy_square(square->center, square->normal, square->side_size, square->color));
     free(square);
 }

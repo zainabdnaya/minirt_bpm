@@ -6,7 +6,7 @@
 /*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 09:35:53 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/06 19:10:41 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:07:01 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_sphere
     t_color     color;
     t_vector    position;
     t_vector    center;
+    t_vector    translation;
 } t_sphere;
 
 typedef struct s_plan
@@ -42,6 +43,8 @@ typedef struct s_plan
     t_vector point;
     t_vector norm;
     t_color  color;
+    t_vector translation;
+
 } t_plan;
 
 typedef struct s_tringle
@@ -50,6 +53,8 @@ typedef struct s_tringle
     t_vector    point_b;
     t_vector    point_c;
     t_color     color;
+    t_vector translation;
+
 }t_triangle;
 
 typedef struct s_square
@@ -58,6 +63,8 @@ typedef struct s_square
     t_vector    normal;
     double      side_size;
     t_color     color;
+    t_vector translation;
+
 }t_square;
 
 typedef struct s_cylindre
@@ -67,6 +74,7 @@ typedef struct s_cylindre
     t_color     color;
     double      diameter;
     double      height;
+    t_vector    translation;
 }t_cylindre;
 
 #endif

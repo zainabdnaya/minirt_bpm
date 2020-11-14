@@ -6,7 +6,7 @@
 /*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 10:05:29 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/07 09:46:23 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/14 09:15:37 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void resolution_parsing(t_minirt *rt)
         }
     rt->resol.WIDTH > 2560 ? rt->resol.WIDTH = 2560 : 0;
     rt->resol.HEIGHT > 1395 ? rt->resol.HEIGHT = 1395 : 0;
+    
 }
 
 void camera_parsing(t_minirt *rt)
@@ -49,7 +50,7 @@ void camera_parsing(t_minirt *rt)
             p_error(13);
             exit(1);
         }
-    if (result != 4)
+    if (result != 5)
     {
         free(camera);
         p_error(10);
@@ -68,6 +69,8 @@ void camera_parsing(t_minirt *rt)
         error(7);
         exit(1);
     }
+    camera->translation = vectorSplit(rt->pars.splitrest[4]);
+    camera->look_from = vectorAdd(camera->look_from,camera->translation);
     add_camera(&rt->list_camera,copy_camera(camera->look_from,camera->look_at,camera->fov));
     free(camera);
 }
@@ -98,7 +101,7 @@ void light_parsing(t_minirt *rt)
            p_error(13);
            exit(1);
        } 
-    if (ft_count(rt->pars.splitrest) != 4)
+    if (ft_count(rt->pars.splitrest) != 5)
     {
         free(light);
         p_error(15);
@@ -112,6 +115,8 @@ void light_parsing(t_minirt *rt)
             p_error(20);
             exit(1);
         }
+    light->translation = vectorSplit(rt->pars.splitrest[4]);
+    light->position = vectorAdd(light->position,light->translation);
     add_lights(&rt->list_light,copy_light(light->position,light->ratio,light->rgb));
     free(light);
 }

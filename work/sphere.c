@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:17:23 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/07 09:47:31 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:10:55 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void        sphere_parsing(t_minirt *rt)
            exit(1);
        } 
     count = ft_count(rt->pars.splitrest);
-    if ( count != 4)
+    if ( count != 5)
     {
             free(sphere);
             obj_error(21);
@@ -36,14 +36,15 @@ void        sphere_parsing(t_minirt *rt)
             obj_error(22);
             exit(1);
         }
-    sphere->color  = colorSplit(rt,rt->pars.splitrest[3]); 
+    sphere->color  = colorSplit(rt,rt->pars.splitrest[3]);
+    sphere->translation = vectorSplit(rt->pars.splitrest[4]);
+    sphere->center = vectorAdd(sphere->center,sphere->translation);
     add_objects(&rt->list_obj, copy_spher(sphere->center, sphere->radius, sphere->color));
     free(sphere);
 }
 
 double sphere_equation(t_minirt *rt,t_vector ray_direction,t_vector origin)
 {
-    //print_list(rt->list_obj);
     t_use scal;
     
     scal.scal1 = vectorDot(ray_direction,ray_direction); // A

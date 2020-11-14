@@ -6,7 +6,7 @@
 /*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 16:23:59 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/12 19:28:49 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:28:06 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void  cylindre_parsing(t_minirt *rt)
     cylindre->color = colorSplit(rt,rt->pars.splitrest[3]);
     cylindre->diameter = convert_to_double(rt->pars.splitrest[4]);
     cylindre->height = convert_to_double(rt->pars.splitrest[5]);
+    cylindre->translation = vectorSplit(rt->pars.splitrest[6]);
+    cylindre->center = vectorAdd(cylindre->center,cylindre->translation);
     if(cylindre->diameter < 0 || cylindre->height < 0)
         {
             obj_error(29);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plan.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 21:59:41 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/07 13:55:20 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/13 22:34:27 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void plan_parsing(t_minirt *rt)
             exit(1);
         }
     count = ft_count(rt->pars.splitrest);
-    if (count != 4)
+    if (count != 5)
     {
         free(plan);
         obj_error(25);
@@ -37,6 +37,8 @@ void plan_parsing(t_minirt *rt)
               exit(1);
           } 
     plan->color = colorSplit(rt, rt->pars.splitrest[3]);
+    plan->translation = vectorSplit(rt->pars.splitrest[4]);
+    plan->point = vectorAdd(plan->point,plan->translation);
     add_objects(&rt->list_obj, copy_plan(plan->point, plan->norm, plan->color));
     free(plan);
 }

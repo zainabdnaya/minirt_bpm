@@ -6,18 +6,13 @@
 /*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 09:49:59 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/13 11:52:43 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/14 10:20:58 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minirt.h"
 
-int key_hook(int key, t_minirt *rt)
-{
-    if (key == 53)
-        exit(0);
-    return (0);
-}
+
 
 void                 create_window(t_minirt *rt, t_mlx *mlx, int WIDTH, int HEIGHT)
 {
@@ -64,11 +59,11 @@ void init_graphics(t_minirt *rt, t_mlx *mlx, int WIDTH, int HEIGHT)
          // rt->list_camera= rt->list_camera->next;
          // rt->list_camera = tmp;
          // }
-        mlx_key_hook(rt->mlx.win, key_hook, &rt->mlx);
         mlx_put_image_to_window(rt->mlx.mlx_ptr, rt->mlx.win, rt->mlx.img_ptr, 0, 0);
+        mlx_key_hook(rt->mlx.win, key_hook, &rt->mlx);
+        // mlx_hook(rt->mlx.win,4, 46,mouse_press,rt);
+
         mlx_loop(rt->mlx.mlx_ptr);
     }
        
 }
-
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 22:06:47 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/13 11:49:57 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/14 10:00:24 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,7 +292,7 @@ unsigned int    ft_strlen(const char *s);
 char            *ft_strjoin(char const *s1, char const *s2);
 /***********************************************************************/
 /*************************Shadows***************************************/
-void            wich_shadow(t_minirt *rt);
+    void wich_shadow(t_minirt *rt);
 double          check_shadow(t_minirt *rt);
 void            shadow_objects(t_minirt *rt);
 void            shadow_intersection(t_minirt *rt, t_vector shadow_direction, t_vector shadow_origin);
@@ -303,5 +303,12 @@ void            print_list_pal(t_objects *ip);
 void            print_list_tr(t_objects *ip);
 void            print_light(t_list_lights *light);
 void            print_light1(t_minirt *rt);
+/***********************************************************************/
+/******************** mlx_hook******************************************/
+
+int mlx_close(t_minirt *rt);
+int key_hook(int key, t_minirt *rt);
+int mouse_press(int button, int x, int y,t_minirt *rt);
+/***********************************************************************/
 
 #endif // DEBUG

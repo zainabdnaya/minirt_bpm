@@ -6,7 +6,7 @@
 /*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:40:20 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/06 19:05:10 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/14 07:28:44 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ typedef struct s_light
     t_vector    position;
     double      ratio;
     t_color     rgb;
+    t_vector    translation;
 
 } t_light;
 
@@ -137,6 +138,7 @@ typedef struct s_camera
     t_vector    direction;
     t_vector    look_from;
     t_vector    look_at;
+    t_vector    translation;
     double      aspectRatio;
     double      fov;
     double      half_height;
@@ -144,6 +146,7 @@ typedef struct s_camera
     int         camera_count;
     double      tetha;
     int         point;
+
 } t_camera;
 
 
