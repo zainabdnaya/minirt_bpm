@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+         #
+#    By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/26 19:39:54 by zdnaya            #+#    #+#              #
-#    Updated: 2020/11/14 09:52:46 by zdnaya           ###   ########.fr        #
+#    Updated: 2020/11/16 13:17:37 by zdnaya           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS			=  work/main.c\
 				   work/square.c\
 				   work/bmp.c\
 				   work/button_key.c\
+				   work/translation.c\
 				   tools/get_next_line.c\
 				   tools/get_next_line_utils.c\
 				   tools/ft_compare_end.c\

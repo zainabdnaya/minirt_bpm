@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
+/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 22:06:47 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/14 10:00:24 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/16 13:25:39 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,9 @@ typedef struct s_minirt
     double          var;
     double          shininess;
     double          ks;
+    int             active_cam;
+    int             active_trans;
+    int             active_rotation;
 }t_minirt;
 
 
@@ -214,14 +217,15 @@ void            triangle_parsing(t_minirt *rt);
 void            square_parsing(t_minirt *rt);
 void            cylindre_parsing(t_minirt *rt);
 /******************************************************************/
+
 /*************Intersection  Objects ******************************/
 double          sphere_equation(t_minirt *rt,t_vector ray_direction,t_vector origin);
 double          plan_equation(t_minirt *rt,t_vector ray_direction,t_vector origin);
 double          triangle_equation(t_minirt *rt,t_vector  ray_direction,t_vector origin);
 double          square_equation(t_minirt *rt,t_vector ray_direction,t_vector origin);
 double          cylindre_equation(t_minirt *rt,t_vector ray_direction,t_vector origin);
-
 /******************************************************************/
+
 /**************************Objects*********************************/
 void            calcul_sphere(t_minirt *rt);
 void            calcul_plan(t_minirt *rt);
@@ -231,6 +235,7 @@ void            calcul_cylindre(t_minirt *rt);
 void            initial_all_objects(t_minirt *rt);
 void            objects_intersection(t_minirt *rt, t_vector ray_direction, t_vector look_from);
 /******************************************************************/
+
 /****************Phong*********************************************/
 t_vector        spec(t_minirt *rt);
 t_vector        ambiant(t_minirt *rt);
@@ -291,6 +296,7 @@ char           *ft_strdup(char *src);
 unsigned int    ft_strlen(const char *s);
 char            *ft_strjoin(char const *s1, char const *s2);
 /***********************************************************************/
+
 /*************************Shadows***************************************/
     void wich_shadow(t_minirt *rt);
 double          check_shadow(t_minirt *rt);
@@ -305,10 +311,14 @@ void            print_light(t_list_lights *light);
 void            print_light1(t_minirt *rt);
 /***********************************************************************/
 /******************** mlx_hook******************************************/
-
-int mlx_close(t_minirt *rt);
-int key_hook(int key, t_minirt *rt);
-int mouse_press(int button, int x, int y,t_minirt *rt);
+int          mlx_close(t_minirt *rt);
+int         key_hook(int key, t_minirt *rt);
+void        mlx_hook_configuration(t_minirt *rt);
+int         key_press(int keycode, t_minirt *rt);
 /***********************************************************************/
+
+/**************************translation&rotation****************************************/
+void        camera_translation(t_minirt *rt,int keycode);
+
 
 #endif // DEBUG

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylindre.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdnaya <diyanazizo13@gmail.com>            +#+  +:+       +#+        */
+/*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 16:23:59 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/13 22:28:06 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/16 11:39:41 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void  cylindre_parsing(t_minirt *rt)
                 exit(1);
             }
     count = ft_count(rt->pars.splitrest);
-    if(count != 6)
+    if(count != 7)
     {
         free(cylindre);
         obj_error(28);

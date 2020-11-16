@@ -6,7 +6,7 @@
 /*   By: zdnaya <zdnaya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 21:54:17 by zdnaya            #+#    #+#             */
-/*   Updated: 2020/11/14 10:21:28 by zdnaya           ###   ########.fr       */
+/*   Updated: 2020/11/16 13:40:16 by zdnaya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int main(int argc,char **argv)
     ft_bzero(&rt,sizeof(t_minirt));
      rt.name = argv[1];
      initial_all_objects(&rt);
+        rt.active_cam = 0;
+        rt.active_rotation = 0;
+        rt.active_trans = 0;
     if(argc ==3)
      {
          if(ft_compare_end(argv[2],"--save") == 1)
